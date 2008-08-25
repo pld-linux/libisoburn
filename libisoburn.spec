@@ -1,12 +1,12 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	0.2.0.pl00
+Version:	0.2.4.pl00
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	b1c4bdb1d13f9ad6444e45ce328d526f
+# Source0-md5:	778d3ff1a9a1a5f9baefffe99eb530fe
 Patch0:		%{name}-link.patch
 URL:		http://libburnia.pykix.org/
 BuildRequires:	autoconf >= 2.50
@@ -71,7 +71,7 @@ Static libisoburn library.
 Statyczna biblioteka libisoburn.
 
 %prep
-%setup -q -n %{name}-0.2.0
+%setup -q -n %{name}-0.2.4
 %patch0 -p1
 
 %build
@@ -97,7 +97,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYRIGHT README TODO
+%attr(755,root,root) %{_bindir}/osirrox
+%attr(755,root,root) %{_bindir}/xorrecord
 %attr(755,root,root) %{_bindir}/xorriso
+%attr(755,root,root) %{_bindir}/xorrisofs
 %attr(755,root,root) %{_libdir}/libisoburn.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
 %{_mandir}/man1/xorriso.1*
