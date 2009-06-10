@@ -1,23 +1,23 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	0.2.4.pl00
+Version:	0.3.8.pl00
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	778d3ff1a9a1a5f9baefffe99eb530fe
+# Source0-md5:	950f75f33c5e7133506c2399b4e3ba39
 Patch0:		%{name}-link.patch
 URL:		http://libburnia.pykix.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libburn-devel >= 0.4.8
-BuildRequires:	libisofs-devel >= 0.6.6
+BuildRequires:	libburn-devel >= 0.6.4
+BuildRequires:	libisofs-devel >= 0.6.18
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	readline-devel
-Requires:	libburn >= 0.4.8
-Requires:	libisofs >= 0.6.6
+Requires:	libburn >= 0.6.4
+Requires:	libisofs >= 0.6.18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,8 +49,8 @@ Summary:	Header files for libisoburn library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libisoburn
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libburn-devel >= 0.4.8
-Requires:	libisofs-devel >= 0.6.6
+Requires:	libburn-devel >= 0.6.4
+Requires:	libisofs-devel >= 0.6.18
 
 %description devel
 Header files for libisoburn library.
@@ -71,7 +71,7 @@ Static libisoburn library.
 Statyczna biblioteka libisoburn.
 
 %prep
-%setup -q -n %{name}-0.2.4
+%setup -q -n %{name}-0.3.8
 %patch0 -p1
 
 %build
