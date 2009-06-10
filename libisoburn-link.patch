@@ -1,28 +1,31 @@
---- libisoburn-0.2.0/configure.ac.orig	2008-06-22 19:37:58.000000000 +0200
-+++ libisoburn-0.2.0/configure.ac	2008-07-11 22:39:00.238034707 +0200
-@@ -88,11 +88,10 @@
+--- libisoburn-0.3.8/configure.ac.orig	2009-04-18 14:32:46.000000000 +0200
++++ libisoburn-0.3.8/configure.ac	2009-06-09 18:21:48.185229777 +0200
+@@ -99,14 +99,13 @@
  dnl Check whether there is readline-devel and readline-runtime.
  dnl If not, erase this macro which would enable use of readline(),add_history()
- READLINE_DEF="-DXorriso_with_readlinE"
+     READLINE_DEF="-DXorriso_with_readlinE"
 -dnl The empty yes case obviously causes -lreadline to be linked
--AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, , READLINE_DEF= ), READLINE_DEF= )
+-    AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, , READLINE_DEF= ), READLINE_DEF= )
 -dnl The X= in the yes case prevents that -lreadline gets linked twice
--AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, X= , READLINE_DEF= ), READLINE_DEF= )
-+AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
-+AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
+-    AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, X= , READLINE_DEF= ), READLINE_DEF= )
++    AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
++    AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
+ else
+     READLINE_DEF=
+ fi
  AC_SUBST(READLINE_DEF)
 +AC_SUBST(READLINE_LIBS)
  
+ dnl ts A90329
+ dnl ACL and xattr do not need to be enabled in libisoburn or xorriso source
+--- libisoburn-0.3.8/Makefile.am.orig	2009-04-18 13:42:40.000000000 +0200
++++ libisoburn-0.3.8/Makefile.am	2009-06-09 18:23:38.075512091 +0200
+@@ -55,7 +55,7 @@
+                          $(EXTF_DEF) $(EXTF_SUID_DEF) $(ZLIB_DEF)
  
- AC_CHECK_HEADER(libburn/libburn.h)
---- libisoburn-0.2.0/Makefile.am.orig	2008-06-22 19:37:58.000000000 +0200
-+++ libisoburn-0.2.0/Makefile.am	2008-07-11 22:38:52.526034707 +0200
-@@ -32,7 +32,7 @@
+ xorriso_xorriso_LDADD = libisoburn/libisoburn.la -lisofs -lburn \
+-		$(THREAD_LIBS) $(LIBBURN_ARCH_LIBS)
++		$(THREAD_LIBS) $(LIBBURN_ARCH_LIBS) $(READLINE_LIBS)
  
- xorriso_xorriso_CPPFLAGS = -Ilibisoburn
- xorriso_xorriso_CFLAGS = -DXorriso_with_maiN -DXorriso_with_regeX $(READLINE_DEF)
--xorriso_xorriso_LDADD = libisoburn/libisoburn.la -lisofs -lburn $(THREAD_LIBS)
-+xorriso_xorriso_LDADD = libisoburn/libisoburn.la -lisofs -lburn $(THREAD_LIBS) $(READLINE_LIBS)
  xorriso_xorriso_SOURCES = \
  	xorriso/xorriso.h \
- 	xorriso/xorriso_private.h \
