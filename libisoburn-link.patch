@@ -1,16 +1,15 @@
---- libisoburn-0.3.8/configure.ac.orig	2009-04-18 14:32:46.000000000 +0200
-+++ libisoburn-0.3.8/configure.ac	2009-06-09 18:21:48.185229777 +0200
-@@ -99,14 +99,13 @@
- dnl Check whether there is readline-devel and readline-runtime.
- dnl If not, erase this macro which would enable use of readline(),add_history()
-     READLINE_DEF="-DXorriso_with_readlinE"
--dnl The empty yes case obviously causes -lreadline to be linked
--    AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, , READLINE_DEF= ), READLINE_DEF= )
--dnl The X= in the yes case prevents that -lreadline gets linked twice
--    AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, X= , READLINE_DEF= ), READLINE_DEF= )
-+    AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
-+    AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
- else
+--- libisoburn-0.6.4/configure.ac.orig	2010-10-26 12:19:52.000000000 +0200
++++ libisoburn-0.6.4/configure.ac	2010-11-11 15:41:46.855097423 +0100
+@@ -129,7 +129,7 @@
+ 
+     else
+ dnl The empty yes case obviously causes -lreadline to be linked
+-        AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, , READLINE_DEF= ), READLINE_DEF= )
++        AC_CHECK_HEADER(readline/readline.h, AC_CHECK_LIB(readline, readline, READLINE_LIBS=-lreadline, READLINE_DEF= ), READLINE_DEF= )
+ dnl The X= in the yes case prevents that -lreadline gets linked twice
+         AC_CHECK_HEADER(readline/history.h, AC_CHECK_LIB(readline, add_history, X= , READLINE_DEF= ), READLINE_DEF= )
+     fi
+@@ -137,6 +137,7 @@
      READLINE_DEF=
  fi
  AC_SUBST(READLINE_DEF)

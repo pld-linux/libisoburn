@@ -1,0 +1,14 @@
+--- libisoburn-0.6.4/xorriso/xorriso.texi.orig	2010-10-26 11:31:25.000000000 +0200
++++ libisoburn-0.6.4/xorriso/xorriso.texi	2010-11-11 16:03:35.879104128 +0100
+@@ -5,9 +5,9 @@
+ @c %**end of header
+ @c
+ @c man-ignore-lines begin
+-@dircategory Archiving
++@dircategory File utilities:
+ @direntry
+-* Xorriso: (xorriso).           Burns ISO 9660 on CD, DVD, BD.
++* Xorriso: (xorriso).			Burns ISO 9660 on CD, DVD, BD
+ @end direntry
+ @c man-ignore-lines end
+ @c
