@@ -1,5 +1,19 @@
---- libisoburn-0.6.4/xorriso/xorriso.texi.orig	2010-10-26 11:31:25.000000000 +0200
-+++ libisoburn-0.6.4/xorriso/xorriso.texi	2010-11-11 16:03:35.879104128 +0100
+--- libisoburn-1.0.4/xorriso/xorrisofs.texi.orig	2011-03-10 10:33:11.000000000 +0100
++++ libisoburn-1.0.4/xorriso/xorrisofs.texi	2011-03-11 18:37:57.155415456 +0100
+@@ -5,9 +5,9 @@
+ @c %**end of header
+ @c
+ @c man-ignore-lines begin
+-@dircategory Archiving
++@dircategory File utilities:
+ @direntry
+-* Xorrisofs: (xorrisofs).           Emulates ISO 9660 program mkisofs
++* Xorrisofs: (xorrisofs).		Emulates ISO 9660 program mkisofs
+ @end direntry
+ @c man-ignore-lines end
+ @c
+--- libisoburn-1.0.4/xorriso/xorriso.texi.orig	2011-03-10 10:33:11.000000000 +0100
++++ libisoburn-1.0.4/xorriso/xorriso.texi	2011-03-11 18:37:56.211417132 +0100
 @@ -5,9 +5,9 @@
  @c %**end of header
  @c
