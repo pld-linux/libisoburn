@@ -1,26 +1,26 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.1.0
+Version:	1.1.2
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	53d9da62da77a35af0f0f44c7632d7da
+# Source0-md5:	07a8531e8693b8ad4093b12184da6d1c
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
-URL:		http://libburnia.pykix.org/
+URL:		http://libburnia-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libburn-devel >= 1.1.0
-BuildRequires:	libisofs-devel >= 1.1.0
+BuildRequires:	libisofs-devel >= 1.1.2
 BuildRequires:	libjte-devel >= 1.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
 Requires:	libburn >= 1.1.0
-Requires:	libisofs >= 1.1.0
+Requires:	libisofs >= 1.1.2
 Requires:	libjte >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -97,11 +97,11 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/postshell
+%post -p /sbin/postshell
 /sbin/ldconfig
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p /sbin/postshell
+%postun -p /sbin/postshell
 /sbin/ldconfig
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
