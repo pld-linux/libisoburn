@@ -53,7 +53,7 @@ Summary:	Header files for libisoburn library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libisoburn
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libburn-devel >= 1.1.6
+Requires:	libburn-devel >= 1.1.8
 Requires:	libisofs-devel >= 1.1.6
 Requires:	libjte-devel >= 1.0.0
 
@@ -114,8 +114,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xorrisofs
 %attr(755,root,root) %{_libdir}/libisoburn.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
+%{_mandir}/man1/xorrecord.1*
 %{_mandir}/man1/xorriso.1*
 %{_mandir}/man1/xorrisofs.1*
+%{_infodir}/xorrecord.info*
 %{_infodir}/xorriso.info*
 %{_infodir}/xorrisofs.info*
 

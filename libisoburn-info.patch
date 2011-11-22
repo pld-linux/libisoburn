@@ -26,3 +26,17 @@
  @end direntry
  @c man-ignore-lines end
  @c
+--- libisoburn-1.1.8/xorriso/xorrecord.texi.orig	2011-11-20 19:25:59.000000000 +0100
++++ libisoburn-1.1.8/xorriso/xorrecord.texi	2011-11-22 21:11:20.791392041 +0100
+@@ -5,9 +5,9 @@
+ @c %**end of header
+ @c
+ @c man-ignore-lines begin
+-@dircategory Archiving
++@dircategory File utilities:
+ @direntry
+-* Xorrecord: (xorrecord).           Emulates CD/DVD/BD program cdrecord
++* Xorrecord: (xorrecord).		Emulates CD/DVD/BD program cdrecord
+ @end direntry
+ @c man-ignore-lines end
+ @c
