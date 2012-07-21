@@ -1,26 +1,26 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.2.2
+Version:	1.2.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	2f94e9dc77c4f3b5066371a5870a844b
+# Source0-md5:	d5d78ec840a8bbc7df6582f65a28ca1e
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
 URL:		http://libburnia-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libburn-devel >= 1.2.0
-BuildRequires:	libisofs-devel >= 1.2.2
+BuildRequires:	libburn-devel >= 1.2.4
+BuildRequires:	libisofs-devel >= 1.2.4
 BuildRequires:	libjte-devel >= 1.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
-Requires:	libburn >= 1.2.0
-Requires:	libisofs >= 1.2.2
+Requires:	libburn >= 1.2.4
+Requires:	libisofs >= 1.2.4
 Requires:	libjte >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,8 +53,8 @@ Summary:	Header files for libisoburn library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libisoburn
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libburn-devel >= 1.2.0
-Requires:	libisofs-devel >= 1.2.2
+Requires:	libburn-devel >= 1.2.4
+Requires:	libisofs-devel >= 1.2.4
 Requires:	libjte-devel >= 1.0.0
 
 %description devel
