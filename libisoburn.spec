@@ -1,26 +1,26 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.2.4
+Version:	1.2.6
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	d5d78ec840a8bbc7df6582f65a28ca1e
+# Source0-md5:	1db39e96f8d0370bfe571e21ba62df3f
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
 URL:		http://libburnia-project.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libburn-devel >= 1.2.4
-BuildRequires:	libisofs-devel >= 1.2.4
+BuildRequires:	libburn-devel >= 1.2.6
+BuildRequires:	libisofs-devel >= 1.2.6
 BuildRequires:	libjte-devel >= 1.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	readline-devel
 BuildRequires:	texinfo
-Requires:	libburn >= 1.2.4
-Requires:	libisofs >= 1.2.4
+Requires:	libburn >= 1.2.6
+Requires:	libisofs >= 1.2.6
 Requires:	libjte >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,8 +53,8 @@ Summary:	Header files for libisoburn library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libisoburn
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libburn-devel >= 1.2.4
-Requires:	libisofs-devel >= 1.2.4
+Requires:	libburn-devel >= 1.2.6
+Requires:	libisofs-devel >= 1.2.6
 Requires:	libjte-devel >= 1.0.0
 
 %description devel
@@ -74,6 +74,21 @@ Static libisoburn library.
 
 %description static -l pl.UTF-8
 Statyczna biblioteka libisoburn.
+
+%package gui
+Summary:	Tcl/Tk based frontend that operates xorriso in dialog mode
+Summary(pl.UTF-8):	Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien dialogowych
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+Requires:	tk
+Suggests:	tk-BWidget
+
+%description gui
+Tcl/Tk based frontend that operates xorriso in dialog mode.
+
+%description gui -l pl.UTF-8
+Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien
+dialogowych.
 
 %prep
 %setup -q
@@ -131,3 +146,7 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libisoburn.a
+
+%files gui
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xorriso-tcltk
