@@ -75,18 +75,39 @@ Static libisoburn library.
 %description static -l pl.UTF-8
 Statyczna biblioteka libisoburn.
 
-%package gui
+%package -n xorriso
+Summary:	ISO 9660 Rock Ridge Filesystem Manipulator
+License:	GPL v3+
+Group:		Applications
+URL:		http://libburnia-project.org/wiki/Xorriso
+Requires:	%{name} = %{version}-%{release}
+
+%description -n xorriso
+xorriso copies file objects from POSIX compliant filesystems into Rock
+Ridge enhanced ISO 9660 filesystems and allows session-wise
+manipulation of such filesystems. It can load the management
+information of existing ISO images and it writes the session results
+to optical media or to filesystem objects.
+
+Vice versa xorriso is able to copy file objects out of ISO 9660
+filesystems.
+
+
+%package -n xorriso-gui
 Summary:	Tcl/Tk based frontend that operates xorriso in dialog mode
 Summary(pl.UTF-8):	Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien dialogowych
+License:	BSD
 Group:		X11/Applications
-Requires:	%{name} = %{version}-%{release}
+URL:		http://libburnia-project.org/wiki/Xorriso
 Requires:	tk
+Requires:	xorriso = %{version}-%{release}
 Suggests:	tk-BWidget
+Obsoletes:	libisoburn-gui
 
-%description gui
+%description -n xorriso-gui
 Tcl/Tk based frontend that operates xorriso in dialog mode.
 
-%description gui -l pl.UTF-8
+%description -n xorriso-gui -l pl.UTF-8
 Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien
 dialogowych.
 
@@ -123,12 +144,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYRIGHT ChangeLog README TODO
+%attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
+
+%files -n xorriso
+%defattr(644,root,root,755)
+%doc xorriso/README_gnu_xorriso xorriso/changelog.txt
 %attr(755,root,root) %{_bindir}/osirrox
 %attr(755,root,root) %{_bindir}/xorrecord
 %attr(755,root,root) %{_bindir}/xorriso
 %attr(755,root,root) %{_bindir}/xorrisofs
 %attr(755,root,root) %{_libdir}/libisoburn.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
 %{_mandir}/man1/xorrecord.1*
 %{_mandir}/man1/xorriso.1*
 %{_mandir}/man1/xorrisofs.1*
@@ -147,6 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libisoburn.a
 
-%files gui
+%files -n xorriso-gui
 %defattr(644,root,root,755)
+%doc frontend/README-tcltk
 %attr(755,root,root) %{_bindir}/xorriso-tcltk
