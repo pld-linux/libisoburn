@@ -77,6 +77,7 @@ Statyczna biblioteka libisoburn.
 
 %package -n xorriso
 Summary:	ISO 9660 Rock Ridge Filesystem Manipulator
+Summary(pl.UTF-8):	Program do operacji na systemach plików ISO 9660 Rock Ridge
 License:	GPL v3+
 Group:		Applications
 URL:		http://libburnia-project.org/wiki/Xorriso
@@ -92,6 +93,15 @@ to optical media or to filesystem objects.
 Vice versa xorriso is able to copy file objects out of ISO 9660
 filesystems.
 
+%description -n xorriso -l pl.UTF-8
+xorriso kopiuje obiekty plików z systemów plików zgodnych z POSIX na
+systemy plików ISO 9660 z rozszerzeniem Rock Ridge oraz pozwala na
+operacje na tych systemach plików w ramach sesji. Potrafi wczytywać
+informacje zarządzające z istniejących obrazów ISO i zapisuje wyniki
+sesji na nośnik optyczny lub do obiektów systemu plików.
+
+W drugą stronę xorriso potrafi kopiować obiekty plików z systemów
+plików ISO 9660.
 
 %package -n xorriso-gui
 Summary:	Tcl/Tk based frontend that operates xorriso in dialog mode
@@ -144,22 +154,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYRIGHT ChangeLog README TODO
-%attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
-
-%files -n xorriso
-%defattr(644,root,root,755)
-%doc xorriso/README_gnu_xorriso xorriso/changelog.txt
-%attr(755,root,root) %{_bindir}/osirrox
-%attr(755,root,root) %{_bindir}/xorrecord
-%attr(755,root,root) %{_bindir}/xorriso
-%attr(755,root,root) %{_bindir}/xorrisofs
 %attr(755,root,root) %{_libdir}/libisoburn.so.*.*.*
-%{_mandir}/man1/xorrecord.1*
-%{_mandir}/man1/xorriso.1*
-%{_mandir}/man1/xorrisofs.1*
-%{_infodir}/xorrecord.info*
-%{_infodir}/xorriso.info*
-%{_infodir}/xorrisofs.info*
+%attr(755,root,root) %ghost %{_libdir}/libisoburn.so.1
 
 %files devel
 %defattr(644,root,root,755)
@@ -171,6 +167,20 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libisoburn.a
+
+%files -n xorriso
+%defattr(644,root,root,755)
+%doc xorriso/README_gnu_xorriso xorriso/changelog.txt
+%attr(755,root,root) %{_bindir}/osirrox
+%attr(755,root,root) %{_bindir}/xorrecord
+%attr(755,root,root) %{_bindir}/xorriso
+%attr(755,root,root) %{_bindir}/xorrisofs
+%{_mandir}/man1/xorrecord.1*
+%{_mandir}/man1/xorriso.1*
+%{_mandir}/man1/xorrisofs.1*
+%{_infodir}/xorrecord.info*
+%{_infodir}/xorriso.info*
+%{_infodir}/xorrisofs.info*
 
 %files -n xorriso-gui
 %defattr(644,root,root,755)
