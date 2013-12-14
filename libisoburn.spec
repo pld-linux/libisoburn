@@ -105,7 +105,7 @@ plików ISO 9660.
 
 %package -n xorriso-gui
 Summary:	Tcl/Tk based frontend that operates xorriso in dialog mode
-Summary(pl.UTF-8):	Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien dialogowych
+Summary(pl.UTF-8):	Oparty na Tcl/Tk interfejs do obsługi xorriso w formie okien dialogowych
 License:	BSD
 Group:		X11/Applications
 URL:		http://libburnia-project.org/wiki/Xorriso
@@ -113,12 +113,13 @@ Requires:	tk
 Requires:	xorriso = %{version}-%{release}
 Suggests:	tk-BWidget
 Obsoletes:	libisoburn-gui
+Obsoletes:	xorriso-tcltk
 
 %description -n xorriso-gui
 Tcl/Tk based frontend that operates xorriso in dialog mode.
 
 %description -n xorriso-gui -l pl.UTF-8
-Interfejs oparty na Tcl/Tk do obsługi xorriso w formie okien
+Oparty na Tcl/Tk interfejs do obsługi xorriso w formie okien
 dialogowych.
 
 %prep
