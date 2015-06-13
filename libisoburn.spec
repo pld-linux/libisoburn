@@ -147,10 +147,10 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post	xorriso -p /sbin/postshell
+%post	-n xorriso -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	xorriso -p /sbin/postshell
+%postun	-n xorriso -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
