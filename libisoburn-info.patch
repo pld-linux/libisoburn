@@ -40,3 +40,17 @@
  @end direntry
  @c man-ignore-lines end
  @c
+--- libisoburn-1.5.0/xorriso/xorriso-tcltk.texi.orig	2017-09-29 13:46:06.000000000 +0200
++++ libisoburn-1.5.0/xorriso/xorriso-tcltk.texi	2018-09-19 16:29:52.235635285 +0200
+@@ -5,9 +5,9 @@
+ @c %**end of header
+ @c
+ @c man-ignore-lines begin
+-@dircategory Archiving
++@dircategory File utilities:
+ @direntry
+-* Xorriso-tcltk: (xorriso-tcltk).   Educational GUI frontend for xorriso
++* Xorriso-tcltk: (xorriso-tcltk).	Educational GUI frontend for xorriso
+ @end direntry
+ @c man-ignore-lines end
+ @c

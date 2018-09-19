@@ -1,12 +1,12 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.4.8
+Version:	1.5.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	5e64fb45f70e4920ebb2fb98012c8b6c
+# Source0-md5:	760258ca2b7edf95109ee44de4665daf
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
 URL:		http://libburnia-project.org/
@@ -188,3 +188,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc frontend/README-tcltk
 %attr(755,root,root) %{_bindir}/xorriso-tcltk
+%{_mandir}/man1/xorriso-tcltk.1*
+%{_infodir}/xorriso-tcltk.info*
