@@ -1,27 +1,28 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.5.2
+Version:	1.5.4
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	e14d470d9f859be8750d06d05559ae38
+Source0:	https://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
+# Source0-md5:	b14473e8ec31a8ebd8d1c8b1b191908c
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
-URL:		http://libburnia-project.org/
+URL:		https://dev.lovelyhq.com/libburnia/web/wiki
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libburn-devel >= %{version}
 BuildRequires:	libisofs-devel >= %{version}
-BuildRequires:	libjte-devel >= 1.0.0
+BuildRequires:	libjte-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	readline-devel
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	texinfo
 Requires:	libburn >= %{version}
 Requires:	libisofs >= %{version}
-Requires:	libjte >= 1.0.0
+Requires:	libjte >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -80,7 +81,7 @@ Summary:	ISO 9660 Rock Ridge Filesystem Manipulator
 Summary(pl.UTF-8):	Program do operacji na systemach plików ISO 9660 Rock Ridge
 License:	GPL v3+
 Group:		Applications
-URL:		http://libburnia-project.org/wiki/Xorriso
+URL:		https://dev.lovelyhq.com/libburnia/web/wiki/Xorriso
 Requires:	%{name} = %{version}-%{release}
 
 %description -n xorriso
@@ -108,12 +109,13 @@ Summary:	Tcl/Tk based frontend that operates xorriso in dialog mode
 Summary(pl.UTF-8):	Oparty na Tcl/Tk interfejs do obsługi xorriso w formie okien dialogowych
 License:	BSD
 Group:		X11/Applications
-URL:		http://libburnia-project.org/wiki/Xorriso
+URL:		https://dev.lovelyhq.com/libburnia/web/wiki/Xorriso
 Requires:	tk
 Requires:	xorriso = %{version}-%{release}
 Suggests:	tk-BWidget
-Obsoletes:	libisoburn-gui
-Obsoletes:	xorriso-tcltk
+Obsoletes:	libisoburn-gui < 1.3.4
+Obsoletes:	xorriso-tcltk < 1.3.4
+BuildArch:	noarch
 
 %description -n xorriso-gui
 Tcl/Tk based frontend that operates xorriso in dialog mode.
@@ -132,7 +134,8 @@ dialogowych.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--enable-pkg-check-modules
 %{__make}
 
 %install
@@ -176,12 +179,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/osirrox
 %attr(755,root,root) %{_bindir}/xorrecord
 %attr(755,root,root) %{_bindir}/xorriso
+%attr(755,root,root) %{_bindir}/xorriso-dd-target
 %attr(755,root,root) %{_bindir}/xorrisofs
 %{_mandir}/man1/xorrecord.1*
 %{_mandir}/man1/xorriso.1*
+%{_mandir}/man1/xorriso-dd-target.1*
 %{_mandir}/man1/xorrisofs.1*
 %{_infodir}/xorrecord.info*
 %{_infodir}/xorriso.info*
+%{_infodir}/xorriso-dd-target.info*
 %{_infodir}/xorrisofs.info*
 
 %files -n xorriso-gui

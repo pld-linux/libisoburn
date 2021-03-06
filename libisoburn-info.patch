@@ -54,3 +54,14 @@
  @end direntry
  @c man-ignore-lines end
  @c
+--- libisoburn-1.5.4/xorriso-dd-target/xorriso-dd-target.texi.orig	2021-01-30 15:26:35.000000000 +0100
++++ libisoburn-1.5.4/xorriso-dd-target/xorriso-dd-target.texi	2021-03-06 08:42:02.653280641 +0100
+@@ -5,7 +5,7 @@
+ @c %**end of header
+ @c
+ @c man-ignore-lines begin
+-@dircategory Archiving
++@dircategory File utilities:
+ @direntry
+ * Xorriso-dd-target: (xorriso-dd-target). Device evaluator and disk image copier for GNU/Linux
+ @end direntry
