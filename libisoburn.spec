@@ -1,12 +1,12 @@
 Summary:	Multi-session filesystem extension to libisofs, libburn
 Summary(pl.UTF-8):	Wielosesyjne rozszerzenie systemu plików do libisofs i libburn
 Name:		libisoburn
-Version:	1.5.4
-Release:	2
+Version:	1.5.6
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://files.libburnia-project.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	b14473e8ec31a8ebd8d1c8b1b191908c
+# Source0-md5:	efb19f7f718f0791f717b2c6094995ec
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-info.patch
 URL:		https://dev.lovelyhq.com/libburnia/web/wiki
